@@ -17,8 +17,12 @@ $ bower install
 $ grunt watch
 ```
 
-Finally, open `file:///path/to/ng-boilerplate/build/index.html` in your browser.
+~~Finally, open `file:///path/to/ng-boilerplate/build/index.html` in your browser.~~
 
+Finally:
+```sh
+$ node server.js
+```
 Happy hacking!
 
 ## Purpose
