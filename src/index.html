@@ -37,10 +37,10 @@
     -->
   </head>
   <body>
-      <div class="container" ui-view="main"></div>
-
     <!--
-    <div class="container">
+    <div class="container" ui-view="main"></div>
+    -->
+    <div class="container" ng-hide="isLoginPage">
       <div class="navbar navbar-default">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
@@ -98,7 +98,7 @@
 
     <div class="container" ui-view="main"></div>
 
-    <footer class="footer">
+    <footer class="footer" ng-hide="isLoginPage">
       <div class="container">
         <div class="footer-inner">
           <ul class="social">
@@ -124,6 +124,6 @@
         </div>
       </div>
   </footer>
-  -->
+
   </body>
 </html>

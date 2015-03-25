@@ -39,7 +39,7 @@ angular.module( 'ngBoilerplate.home', [
  * And of course we define a controller for our route.
  */
 .controller( 'HomeCtrl', function HomeController( $scope ) {
+    console.log( 'HomeCtrl' );
 })
 
 ;
-
