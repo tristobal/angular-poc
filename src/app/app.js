@@ -4,8 +4,9 @@ angular.module( 'ngBoilerplate', [
     'ngBoilerplate.home',
     'ngBoilerplate.about',
     'ngBoilerplate.login',
-    'ui.router',
-    'isLoginModule'
+    'ngBoilerplate.header',
+    'ngBoilerplate.gestion',
+    'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
@@ -15,14 +16,13 @@ angular.module( 'ngBoilerplate', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, isLoginFactory ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
     console.log( 'AppCtrl' );
-    $scope.isLoginPage = true;
+
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams ){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
         }
-        $scope.isLoginPage = isLoginFactory.isLogin();
     });
 })
 

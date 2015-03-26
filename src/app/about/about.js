@@ -11,6 +11,9 @@ angular.module( 'ngBoilerplate.about', [
             "main": {
                 controller: 'AboutCtrl',
                 templateUrl: 'about/about.tpl.html'
+            },
+            "header": {
+                templateUrl: 'header/header.tpl.html'
             }
         },
         data:{ pageTitle: 'What is It?' }

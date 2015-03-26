@@ -1,0 +1,99 @@
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true" ng-click="menuCollapsed = ! menuCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!--div class="navbar-brand">
+            ngbp
+            <small>
+                <a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">
+                    v<%= version %>
+                </a>
+            </small>
+        </div-->
+    </div>
+    <div class="collapse navbar-collapse" collapse="menuCollapsed">
+        <ul class="nav navbar-nav">
+            <!--li ui-sref-active="active">
+                <a href ui-sref="home">
+                    <i class="fa fa-cog"></i>
+                    Gestión de Servicios
+                </a>
+            </li-->
+            <li class="dropdown" ui-sref-active="active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <i class="fa fa-cog"></i>
+                    Gesti&oacute;n de Servicios
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href ui-sref="gestion1">Ingreso de servicio</a></li>
+                    <li><a href ui-sref="gestion2">Servicio en transito</a></li>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a href ui-sref="about">
+                    <i class="fa fa-usd"></i>
+                    Pago de proveedores
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <i class="fa fa-times-circle"></i>
+                    Cierre
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Generar planilla</a></li>
+                    <li><a href="#">Asociar factura</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <i class="fa fa-book"></i>
+                    Rendiciones
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Anticipos</li>
+                    <li><a href="#">Rendir</a></li>
+                    <li><a href="#">Informe</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Combustible</li>
+                    <li><a href="#">Rendir</a></li>
+                    <li><a href="#">Informe</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <i class="fa fa-bar-chart-o"></i>
+                    Informes
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Informes servicios</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <i class="fa fa-wrench"></i>
+                    Administraci&oacute;n
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Permisos</a></li>
+                    <li><a href="#">Cliente</a></li>
+                    <li><a href="#">Cliente solicita</a></li>
+                    <li><a href="#">Tarifario cliente</a></li>
+                    <li><a href="#">Proveedor</a></li>
+                    <li><a href="#">Tarifario proveedor</a></li>
+                    <li><a href="#">Anular rendici&oacute;n</a></li>
+                    <li><a href="#">Devoluci&oacute;n cierre</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,6 +1,5 @@
 angular.module( 'ngBoilerplate.login', [
-    'ui.router',
-    'isLoginModule'
+    'ui.router'
 ])
 
 .config(function config( $stateProvider ) {
@@ -16,11 +15,10 @@ angular.module( 'ngBoilerplate.login', [
     });
 })
 
-.controller( 'LoginCtrl', function LoginCtrl( $scope, isLoginFactory, $state ) {
+.controller( 'LoginCtrl', function LoginCtrl( $scope, $state ) {
     console.log( 'LoginCtrl' );
 
     $scope.loginClick = function() {
-        isLoginFactory.setLogin(true);
         $state.go("home");
     };
 })
