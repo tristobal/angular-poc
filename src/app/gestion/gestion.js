@@ -32,8 +32,21 @@ angular.module( 'ngBoilerplate.gestion', [
     });
 })
 
-.controller( 'GestionCtrl', function GestionCtrl( $scope ) {
+.controller( 'GestionCtrl', function GestionCtrl( $scope, $parse ) {
     console.log( 'GestionCtrl' );
+
+    $scope.columns = ['Fecha Uno', 'Fecha Dos', 'Agencia', 'Servicio', 'Nombre', 'Descripción', 'Origen', 'Destino', 'Producto'];
+    $scope.rows = [1, 2, 3, 4, 5, 6, 7, 8];
+    $scope.cells = {};
+
+    process = function(exp) {
+        return exp.replace(/[A-Z]\d+/g, function(ref) {
+            return 'compute("' + ref + '")';
+        });
+    };
+    $scope.compute = function(cell) {
+        return $parse(process($scope.cells[cell]))($scope);
+    };
 })
 
 ;
