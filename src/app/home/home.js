@@ -40,6 +40,7 @@ angular.module( 'ngBoilerplate.home', [
  */
 .controller( 'HomeCtrl', function HomeController( $scope ) {
     console.log( 'HomeCtrl' );
+    isLoginFactory.setLoginPage(false);
 })
 
 ;

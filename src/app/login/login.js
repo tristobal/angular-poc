@@ -20,7 +20,7 @@ angular.module( 'ngBoilerplate.login', [
     console.log( 'LoginCtrl' );
 
     $scope.loginClick = function() {
-        isLoginFactory.setLogin(true);
+        isLoginFactory.setLoginPage(false);
         $state.go("home");
     };
 })

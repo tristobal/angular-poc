@@ -8,17 +8,17 @@
     function isLoginFactory() {
         var isLoginVar = false;
         var service = {
-            isLogin : isLogin,
-            setLogin : setLogin
+            isLoginPage : isLoginPage,
+            setLoginPage : setLoginPage
         };
 
         return service;
 
-        function isLogin() {
+        function isLoginPage() {
             return isLoginVar;
         }
 
-        function setLogin(value) {
+        function setLoginPage(value) {
             isLoginVar = value;
         }
 
