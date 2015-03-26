@@ -13,7 +13,8 @@
     "url": "git@github.com:ngbp/ngbp.git"
   },
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "open": "0.0.5"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
