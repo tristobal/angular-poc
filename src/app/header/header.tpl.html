@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<div class="navbar navbar-default" ng-controller="HeaderCtrl">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true" ng-click="menuCollapsed = ! menuCollapsed">
             <span class="sr-only">Toggle navigation</span>
@@ -23,15 +23,15 @@
                     Gestión de Servicios
                 </a>
             </li-->
-            <li class="dropdown" ui-sref-active="active">
+            <li class="dropdown" ng-class="{ active: isGestionSelected() }">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     <i class="fa fa-cog"></i>
                     Gesti&oacute;n de Servicios
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href ui-sref="ingresoservicios">Ingreso de servicio</a></li>
-                    <li><a href ui-sref="serviciotransito">Servicio en transito</a></li>
+                    <li><a ui-sref="ingresoservicios">Ingreso de servicio</a></li>
+                    <li><a ui-sref="serviciotransito">Servicio en transito</a></li>
                 </ul>
             </li>
             <li ui-sref-active="active">

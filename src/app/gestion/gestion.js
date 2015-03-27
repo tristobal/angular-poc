@@ -34,7 +34,7 @@ angular.module( 'ngBoilerplate.gestion', [
 })
 
 
-.controller( 'IngresoServicioCtrl', function IngresoServicioCtrl( $scope, $parse ) {
+.controller( 'IngresoServicioCtrl', function IngresoServicioCtrl( $scope ) {
     console.log( 'IngresoServicioCtrl' );
 
 
