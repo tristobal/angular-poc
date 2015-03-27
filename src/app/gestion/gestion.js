@@ -5,36 +5,68 @@ angular.module( 'ngBoilerplate.gestion', [
 
 .config(function config( $stateProvider ) {
     $stateProvider
-    .state( 'gestion1', {
-        url: '/gestion1',
+    .state( 'ingresoservicios', {
+        url: '/ingresoservicios',
         views: {
             "main": {
-                controller: 'GestionCtrl',
-                templateUrl: 'gestion/gestion.uno.tpl.html'
+                controller: 'IngresoServicioCtrl',
+                templateUrl: 'gestion/ingresoservicios.tpl.html'
             },
             "header": {
                 templateUrl: 'header/header.tpl.html'
             }
         },
-        data:{ pageTitle: 'Gestion UNO' }
+        data:{ pageTitle: 'Ingreso de servicios' }
     })
-    .state( 'gestion2', {
-        url: '/gestion2',
+    .state( 'serviciotransito', {
+        url: '/serviciotransito',
         views: {
             "main": {
-                controller: 'GestionCtrl',
-                templateUrl: 'gestion/gestion.dos.tpl.html'
+                controller: 'ServicioTransitoCtrl',
+                templateUrl: 'gestion/serviciotransito.tpl.html'
             },
             "header": {
                 templateUrl: 'header/header.tpl.html'
             }
         },
-        data:{ pageTitle: 'Gestion DOS' }
+        data:{ pageTitle: 'Servicio en Transito' }
     });
 })
 
-.controller( 'GestionCtrl', function GestionCtrl( $scope, $parse ) {
-    console.log( 'GestionCtrl' );
+
+.controller( 'IngresoServicioCtrl', function IngresoServicioCtrl( $scope, $parse ) {
+    console.log( 'IngresoServicioCtrl' );
+
+
+    // Disable weekend selection
+    $scope.disabled = function(date, mode) {
+        return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+    };
+
+    $scope.openInicio = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.openedInicio = true;
+    };
+
+    $scope.openFin = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.openedFin = true;
+    };
+
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+
+})
+
+.controller( 'ServicioTransitoCtrl', function ServicioTransitoCtrl( $scope, $parse ) {
+    console.log( 'ServicioTransitoCtrl' );
 
     /**
     * FUENTE:
@@ -55,40 +87,6 @@ angular.module( 'ngBoilerplate.gestion', [
     };
 
 
-    // ------------------------- DATEPICKER ------------------------------
-    $scope.today = function() {
-        $scope.dt = new Date();
-    };
-    $scope.today();
-
-    $scope.clear = function () {
-        $scope.dt = null;
-    };
-
-    // Disable weekend selection
-    $scope.disabled = function(date, mode) {
-        return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-    };
-
-    $scope.toggleMin = function() {
-        $scope.minDate = $scope.minDate ? null : new Date();
-    };
-    $scope.toggleMin();
-
-    $scope.open = function($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-
-        $scope.opened = true;
-    };
-
-    $scope.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1
-    };
-
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
 })
 
 ;
