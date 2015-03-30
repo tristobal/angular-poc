@@ -15,10 +15,24 @@ angular.module( 'ngBoilerplate.login', [
     });
 })
 
-.controller( 'LoginCtrl', function LoginCtrl( $scope, $state ) {
+.controller( 'LoginCtrl', function LoginCtrl( $scope, $state, loginFactory ) {
     console.log( 'LoginCtrl' );
 
     $scope.loginClick = function() {
+        var json = {
+            username : $scope.username,
+            password : $scope.password
+        };
+        console.log(json.username + " " + json.password);
+
+        /*loginFactory.getToken(json)
+        .success(function (user) {
+            console.log( JSON.stringify(user) );
+        })
+        .error(function (error) {
+            alert( JSON.stringify(error) );
+        });*/
+
         $state.go("home");
     };
 })
