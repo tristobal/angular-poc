@@ -1,10 +1,6 @@
 language: node_js
 node_js:
   - "0.10"
-env:
-  global:
-    - "FTP_USER=wakulcl"
-    - "FTP_PASSWORD=wk7Sg76q4M"
 
 before_script:
   - export DISPLAY=:99.0
@@ -14,6 +10,3 @@ before_script:
   - bower install
 
 script: grunt
-
-after_success:
-    "curl --ftp-create-dirs -T * -u $FTP_USER:$FTP_PASSWORD ftp://190.110.122.162/public_html/travis"
