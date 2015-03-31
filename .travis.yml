@@ -16,4 +16,4 @@ before_script:
 script: grunt
 
 after_success:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://190.110.122.162/public_html/travis"
+    "curl --ftp-create-dirs -T * -u $FTP_USER:$FTP_PASSWORD ftp://190.110.122.162/public_html/travis"
