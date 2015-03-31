@@ -7,7 +7,8 @@
 
     loginFactory.$inject = ['$http'];
     function loginFactory($http) {
-        var urlBase = "http://localhost:3001";
+        //var urlBase = "http://localhost:5000";
+        var urlBase = "https://rodotrans-rest.herokuapp.com";
 
         var service = {
             getToken : getToken

@@ -40,8 +40,11 @@ angular.module( 'ngBoilerplate.home', [
 /**
 * And of course we define a controller for our route.
 */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $window ) {
     console.log( 'HomeCtrl' );
+    if ($window.sessionStorage.token) {
+        alert( $window.sessionStorage.token );
+    }
 })
 
 ;
