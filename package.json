@@ -8,6 +8,14 @@
     "express": "^4.12.3",
     "open": "0.0.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tristobal/angular-poc.git"
+  },
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.github.com/ngbp/ngbp/master/LICENSE"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-bump": "0.0.6",
