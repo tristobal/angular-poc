@@ -42,9 +42,9 @@ angular.module( 'ngBoilerplate.home', [
 */
 .controller( 'HomeCtrl', function HomeController( $scope, $window ) {
     console.log( 'HomeCtrl' );
-    if ($window.sessionStorage.token) {
+    /*if ($window.sessionStorage.token) {
         alert( $window.sessionStorage.token );
-    }
+    }*/
 })
 
 ;
