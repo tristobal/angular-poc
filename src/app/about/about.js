@@ -1,27 +1,34 @@
-angular.module( 'rodotrans.about', [
-    'ui.router',
-    //'placeholders',
-    'ui.bootstrap'
-])
+(function() {
+    'use strict';
 
-.config(function( $stateProvider ) {
-    $stateProvider.state( 'about', {
-        url: '/about',
-        views: {
-            "main": {
-                controller: 'AboutCtrl',
-                templateUrl: 'about/about.tpl.html'
+    angular
+    .module( 'rodotrans.about', [
+        'ui.router',
+        'ui.bootstrap'
+    ])
+    .config( configAbout )
+    .controller( 'AboutCtrl', AboutCtrl);
+
+    configAbout.$inject = ['$stateProvider'];
+    function configAbout( $stateProvider ) {
+        $stateProvider.state( 'about', {
+            url: '/about',
+            views: {
+                "main": {
+                    controller: 'AboutCtrl',
+                    templateUrl: 'about/about.tpl.html'
+                },
+                "header": {
+                    templateUrl: 'header/header.tpl.html'
+                }
             },
-            "header": {
-                templateUrl: 'header/header.tpl.html'
-            }
-        },
-        data:{ pageTitle: 'What is It?' }
-    });
-})
+            data:{ pageTitle: 'What is It?' }
+        });
+    }
 
-.controller( 'AboutCtrl', function( $scope ) {
-    console.log( 'AboutCtrl' );
-})
+    AboutCtrl.$inject = ['$scope'];
+    function AboutCtrl( $scope ) {
+        console.log( 'AboutCtrl' );
+    }
 
-;
+})();

@@ -3,7 +3,8 @@
 
     angular
     .module('rodotrans.login')
-    .factory('loginFactory', loginFactory);
+    .factory('loginFactory', loginFactory)
+    .factory('AuthenticationService', AuthenticationService);
 
     loginFactory.$inject = ['$http'];
     function loginFactory($http) {
@@ -21,4 +22,12 @@
         }
 
     }
+
+    function AuthenticationService() {
+        var auth = {
+            isLogged: false
+        };
+        return auth;
+    }
+
 })();

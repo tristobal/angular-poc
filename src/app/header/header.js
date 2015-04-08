@@ -1,20 +1,23 @@
-angular.module( 'rodotrans.header', [
-    'ui.router'
-])
+(function() {
+    'use strict';
 
-.controller( 'HeaderCtrl', function( $scope, $state, $window ) {
-    console.log( 'HeaderCtrl' );
+    angular
+    .module( 'rodotrans.header', ['ui.router'])
+    .controller( 'HeaderCtrl' , HeaderCtrl);
 
-    $scope.isGestionSelected = function() {
-        var result = $state.includes('ingresoservicios') || $state.includes('serviciotransito');
-        console.log(result);
-        return result;
-    };
+    HeaderCtrl.$inject = [ '$scope', '$state', '$window' ];
+    function HeaderCtrl( $scope, $state, $window ) {
+        console.log( 'HeaderCtrl' );
 
-    $scope.logout = function(){
-        delete $window.sessionStorage.token;
-        $state.go("login");
-    };
-})
+        $scope.isGestionSelected = function() {
+            var result = $state.includes('ingresoservicios') || $state.includes('serviciotransito');
+            console.log(result);
+            return result;
+        };
 
-;
+        $scope.logout = function(){
+            delete $window.sessionStorage.token;
+            $state.go("login");
+        };
+    }
+})();
