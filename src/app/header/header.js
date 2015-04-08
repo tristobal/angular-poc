@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.header', [
     'ui.router'
 ])
 
-.controller( 'HeaderCtrl', function HeaderCtrl( $scope, $state, $window ) {
+.controller( 'HeaderCtrl', function( $scope, $state, $window ) {
     console.log( 'HeaderCtrl' );
     //$scope.$state = $state;
 

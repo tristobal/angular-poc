@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.login', [
     'ui.router'
 ])
 
-.config(function config( $stateProvider ) {
+.config(function( $stateProvider ) {
     $stateProvider.state( 'login', {
         url: '/login',
         views: {
@@ -15,7 +15,7 @@ angular.module( 'ngBoilerplate.login', [
     });
 })
 
-.controller( 'LoginCtrl', function LoginCtrl( $scope, $state, loginFactory, $window ) {
+.controller( 'LoginCtrl', function( $scope, $state, loginFactory, $window ) {
     console.log( 'LoginCtrl' );
     $scope.isError = false;
     $scope.isLoading = false;

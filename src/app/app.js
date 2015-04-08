@@ -9,14 +9,14 @@ angular.module( 'ngBoilerplate', [
     'ui.router'
 ])
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
+.config( function( $stateProvider, $urlRouterProvider ) {
     $urlRouterProvider.otherwise( '/login' );
 })
 
-.run( function run () {
+.run( function() {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+.controller( 'AppCtrl', function( $scope ) {
     console.log( 'AppCtrl' );
 
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams ){

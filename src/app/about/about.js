@@ -4,7 +4,7 @@ angular.module( 'ngBoilerplate.about', [
     'ui.bootstrap'
 ])
 
-.config(function config( $stateProvider ) {
+.config(function( $stateProvider ) {
     $stateProvider.state( 'about', {
         url: '/about',
         views: {
@@ -20,7 +20,7 @@ angular.module( 'ngBoilerplate.about', [
     });
 })
 
-.controller( 'AboutCtrl', function AboutCtrl( $scope ) {
+.controller( 'AboutCtrl', function( $scope ) {
     console.log( 'AboutCtrl' );
 })
 

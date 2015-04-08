@@ -3,7 +3,7 @@ angular.module( 'ngBoilerplate.gestion', [
     'ui.bootstrap'
 ])
 
-.config(function config( $stateProvider ) {
+.config( function( $stateProvider ) {
     $stateProvider
     .state( 'ingresoservicios', {
         url: '/ingresoservicios',
@@ -34,7 +34,7 @@ angular.module( 'ngBoilerplate.gestion', [
 })
 
 
-.controller( 'IngresoServicioCtrl', function IngresoServicioCtrl( $scope ) {
+.controller( 'IngresoServicioCtrl', function( $scope ) {
     console.log( 'IngresoServicioCtrl' );
 
 
@@ -65,7 +65,7 @@ angular.module( 'ngBoilerplate.gestion', [
 
 })
 
-.controller( 'ServicioTransitoCtrl', function ServicioTransitoCtrl( $scope, $parse ) {
+.controller( 'ServicioTransitoCtrl', function( $scope, $parse ) {
     console.log( 'ServicioTransitoCtrl' );
 
     /**
