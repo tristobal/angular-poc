@@ -1,11 +1,11 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'rodotrans', [
     'templates-app',
     'templates-common',
-    'ngBoilerplate.home',
-    'ngBoilerplate.about',
-    'ngBoilerplate.login',
-    'ngBoilerplate.header',
-    'ngBoilerplate.gestion',
+    'rodotrans.home',
+    'rodotrans.about',
+    'rodotrans.login',
+    'rodotrans.header',
+    'rodotrans.gestion',
     'ui.router'
 ])
 

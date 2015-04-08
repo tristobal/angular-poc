@@ -45,8 +45,8 @@ app-wide dependencies that are required to assemble your app.
 angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about'
+  'rodotrans.home',
+  'rodotrans.about'
   'ui.router',
   'ui.route'
 ])

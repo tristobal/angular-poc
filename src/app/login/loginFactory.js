@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-    .module('ngBoilerplate.login')
+    .module('rodotrans.login')
     .factory('loginFactory', loginFactory);
 
     loginFactory.$inject = ['$http'];

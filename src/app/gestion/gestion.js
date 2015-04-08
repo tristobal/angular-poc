@@ -1,4 +1,4 @@
-angular.module( 'ngBoilerplate.gestion', [
+angular.module( 'rodotrans.gestion', [
     'ui.router',
     'ui.bootstrap'
 ])

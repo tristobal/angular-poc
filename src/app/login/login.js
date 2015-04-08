@@ -1,4 +1,4 @@
-angular.module( 'ngBoilerplate.login', [
+angular.module( 'rodotrans.login', [
     'ui.router'
 ])
 
