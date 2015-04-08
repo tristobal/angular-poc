@@ -20,8 +20,8 @@
         });
     }
 
-    LoginCtrl.$inject = ['$scope', '$state', 'loginFactory', '$window'];
-    function LoginCtrl( $scope, $state, loginFactory, $window ) {
+    LoginCtrl.$inject = ['$scope', '$state', 'loginFactory', '$window', 'authenticationService'];
+    function LoginCtrl( $scope, $state, loginFactory, $window, authenticationService ) {
         console.log( 'LoginCtrl' );
         $scope.isError = false;
         $scope.isLoading = false;
@@ -37,47 +37,21 @@
             loginFactory.getToken(json)
             .success(function (data) {
                 console.log( data.token );
+                authenticationService.isLogged = true;
                 $window.sessionStorage.token = data.token;
                 $state.go("home");
             })
             .error(function (error) {
                 $scope.isError = true;
-                $scope.isLoading = false;
-                delete $window.sessionStorage.token;
-                console.log( error );
+                if (authenticationService.isLogged) {
+                    authenticationService.isLogged = false;
+                    $scope.isLoading = false;
+                    delete $window.sessionStorage.token;
+                    console.log( error );
+                }
             });
 
         };
     }
-
-    /*
-    AdminUserCtrl.$inject = ['$scope', '$location', '$window', 'UserService', 'AuthenticationService',
-    function AdminUserCtrl($scope, $location, $window, UserService, AuthenticationService) {
-
-        //Admin User Controller (login, logout)
-        $scope.logIn = function logIn(username, password) {
-            if (username !== undefined && password !== undefined) {
-
-                UserService.logIn(username, password)
-                .success(function(data) {
-                    AuthenticationService.isLogged = true;
-                    $window.sessionStorage.token = data.token;
-                    $location.path("/admin");
-                }).error(function(status, data) {
-                    console.log(status);
-                    console.log(data);
-                });
-            }
-        };
-
-        $scope.logout = function logout() {
-            if (AuthenticationService.isLogged) {
-                AuthenticationService.isLogged = false;
-                delete $window.sessionStorage.token;
-                $location.path("/");
-            }
-        };
-    }*/
-
 
 })();
