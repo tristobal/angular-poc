@@ -1,0 +1,20 @@
+<div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" name="address" class="form-control" placeholder="Dirección..." ng-model="address" required>
+                <span class="input-group-btn">
+                    <!--
+                    !!str is to force to convert str to a boolean value. And both !!null and !!"" are evaluated to be false.
+                    -->
+                    <button class="btn btn-default" type="button" ng-click="getInfo()" ng-disabled="!(!!address)">
+                        Obtener Coordenadas
+                    </button>
+                </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+    <div id="respuestas">
+        {{ responseJSON | json}}
+    </div>
+</div>

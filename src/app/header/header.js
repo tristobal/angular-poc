@@ -11,7 +11,7 @@
 
         $scope.isGestionSelected = function() {
             var result = $state.includes('ingresoservicios') || $state.includes('serviciotransito');
-            console.log(result);
+            //console.log(result);
             return result;
         };
 

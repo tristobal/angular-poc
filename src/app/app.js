@@ -10,15 +10,18 @@
         'rodotrans.login',
         'rodotrans.header',
         'rodotrans.gestion',
+        'rodotrans.mapa',
         'ui.router'
     ])
     .config( configApp )
     .run( runApp )
     .controller( 'AppCtrl', AppCtrl );
 
-    configApp.$inject = ['$stateProvider', '$urlRouterProvider'];
-    function configApp( $stateProvider, $urlRouterProvider ) {
+    configApp.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+    function configApp( $stateProvider, $urlRouterProvider, $httpProvider ) {
         $urlRouterProvider.otherwise( '/login' );
+
+        $httpProvider.interceptors.push('tokenInterceptor');
     }
 
     function runApp() {
