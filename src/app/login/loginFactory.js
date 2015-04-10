@@ -52,7 +52,7 @@
 
             /* Set Authentication.isAuthenticated to true if 200 received */
             response: function (response) {
-                if (response !== null && response.status == 200 && $window.sessionStorage.token && !authenticationService.isLogged) {
+                if (response !== null && response.status === 200 && $window.sessionStorage.token && !authenticationService.isLogged) {
                     authenticationService.isLogged = true;
                 }
                 return response || $q.when(response);

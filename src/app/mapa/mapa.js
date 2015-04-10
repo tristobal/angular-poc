@@ -28,13 +28,11 @@
     MapaCtrl.$inject = [ '$scope', '$state', '$window', 'GetGeocoding' ];
     function MapaCtrl( $scope, $state, $window , GetGeocoding) {
         console.log( 'MapaCtrl' );
-        //$scope.responseJSON = {};
 
         $scope.getInfo = function() {
             var customAddress = angular.lowercase($scope.address);
             customAddress = customAddress.split(" ").join("+");
             console.log( customAddress );
-            //$scope.responseJSON = customAddress;
 
             GetGeocoding.getLocation( customAddress )
             .success(function(resp){
@@ -49,6 +47,8 @@
 
     GetGeocoding.$inject = ['$http'];
     function GetGeocoding($http) {
+
+        //localhost API: ABQIAAAAnfs7bKE82qgb3Zc2YyS-oBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSySz_REpPq-4WZA27OwgbtyR3VcA
         var apiKey = "AIzaSyAUKuq7I_IS8KeqQqs10Hcd1oKzQQA8A00";
         var urlBase = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 
