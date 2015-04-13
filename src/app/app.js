@@ -24,7 +24,15 @@
         $httpProvider.interceptors.push('tokenInterceptor');
     }
 
-    function runApp() {
+
+    runApp.$inject = ['$rootScope', '$location', 'authenticationService'];
+    function runApp( $rootScope, $location, authenticationService) {
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // Redirecciona a la página de Login si no se está logeado
+            if (!authenticationService.isLogged) {
+                $location.path('/login');
+            }
+        });
     }
 
     AppCtrl.$inject = ['$scope'];
