@@ -11,25 +11,31 @@
         'rodotrans.header',
         'rodotrans.gestion',
         'rodotrans.mapa',
-        'ui.router'
+        'ui.router',
+        'angular-jwt',
+        'angular-storage'
     ])
     .config( configApp )
     .run( runApp )
     .controller( 'AppCtrl', AppCtrl );
 
-    configApp.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
-    function configApp( $stateProvider, $urlRouterProvider, $httpProvider ) {
+    configApp.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider', 'jwtInterceptorProvider'];
+    function configApp( $stateProvider, $urlRouterProvider, $httpProvider, jwtInterceptorProvider ) {
         $urlRouterProvider.otherwise( '/login' );
 
-        $httpProvider.interceptors.push('tokenInterceptor');
+        jwtInterceptorProvider.tokenGetter = function(store) {
+            return store.get('jwt');
+        };
+
+        $httpProvider.interceptors.push('jwtInterceptor');
     }
 
 
-    runApp.$inject = ['$rootScope', '$location', 'authenticationService'];
-    function runApp( $rootScope, $location, authenticationService) {
+    runApp.$inject = ['$rootScope', '$location', 'authenticationService', 'store', 'jwtHelper'];
+    function runApp( $rootScope, $location, authenticationService, store, jwtHelper) {
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // Redirecciona a la página de Login si no se está logeado
-            if (!authenticationService.isLogged) {
+            if (!authenticationService.isLogged || !store.get('jwt') || jwtHelper.isTokenExpired(store.get('jwt'))) {
                 $location.path('/login');
             }
         });

@@ -2,7 +2,10 @@
     'use strict';
 
     angular
-    .module( 'rodotrans.login', ['ui.router'])
+    .module( 'rodotrans.login', [
+        'ui.router',
+        'angular-storage'
+    ])
     .config( configLogin )
     .controller( 'LoginCtrl', LoginCtrl);
 
@@ -20,8 +23,8 @@
         });
     }
 
-    LoginCtrl.$inject = ['$scope', '$state', 'loginFactory', '$window', 'authenticationService'];
-    function LoginCtrl( $scope, $state, loginFactory, $window, authenticationService ) {
+    LoginCtrl.$inject = ['$scope', '$state', 'loginFactory', '$window', 'authenticationService', 'store'];
+    function LoginCtrl( $scope, $state, loginFactory, $window, authenticationService, store ) {
         console.log( 'LoginCtrl' );
         $scope.isError = false;
         $scope.isLoading = false;
@@ -38,7 +41,7 @@
             .success(function (data) {
                 console.log( data.token );
                 authenticationService.isLogged = true;
-                $window.sessionStorage.token = data.token;
+                store.set('jwt', data.token);
                 $state.go("home");
             })
             .error(function (error) {
@@ -46,7 +49,7 @@
                 if (authenticationService.isLogged) {
                     authenticationService.isLogged = false;
                     $scope.isLoading = false;
-                    delete $window.sessionStorage.token;
+                    store.remove('jwt');
                     console.log( error );
                 }
             });

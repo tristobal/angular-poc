@@ -25,7 +25,7 @@
     configHome.$inject = ['$stateProvider'];
     function configHome( $stateProvider ) {
         $stateProvider.state( 'home', {
-            url: '/home',
+            url: '/',
             views: {
                 "main": {
                     controller: 'HomeCtrl',
@@ -42,9 +42,6 @@
     HomeCtrl.$inject = ['$scope', '$window'];
     function HomeCtrl( $scope, $window ) {
         console.log( 'HomeCtrl' );
-        /*if ($window.sessionStorage.token) {
-            alert( $window.sessionStorage.token );
-        }*/
     }
 
 })();
